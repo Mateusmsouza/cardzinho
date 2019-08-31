@@ -1,4 +1,4 @@
-const User = require('../controller/User');
+const User = require('../../controller/User');
 
 describe('Testing User Class', ()=>{
     it('Should create a new user', ()=>{

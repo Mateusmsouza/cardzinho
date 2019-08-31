@@ -7,7 +7,11 @@ class Solicitation{
 	}
 
 	verify(){
-		return user.canHaveCredCard();
+		let _qualify = (bool) => bool ? this.status = "accepted" : this.status = "rejecteds";
+		let status = this.user.canHaveCredCard();
+
+		_qualify(status);
+		return status;
 	}
 
 }
