@@ -2,12 +2,18 @@ const dataType = require('sequelize');
 
 module.exports = (database) => {
     return database.define('USERS', {
+    id: {
+      primaryKey: true,
+      omitNull: true,
+      type: dataType.INTEGER,
+      onDelete: 'CASCADE'
+    },
     name : {
       type: dataType.STRING,
       primarykey: true,
       unique: 'datauser'
     },
-    lasname : {
+    lastname : {
       type: dataType.STRING,
       unique: 'datauser'
     },
@@ -23,8 +29,7 @@ module.exports = (database) => {
       type: dataType.REAL
     },
     credit: {
-      type: dataType.FLOAT,
-      length: 7
+      type: dataType.INTEGER,
     }
   });
 }

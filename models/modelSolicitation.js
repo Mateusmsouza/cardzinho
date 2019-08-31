@@ -2,17 +2,31 @@ const dataType = require('sequelize');
 
 module.exports = (database) => {
   return database.define('SOLICITATIONS', {
-    user: {
-      type: dataType.STRING,
-      primarykey: true
-    },
     status: {
       type: dataType.STRING
     },
-    data: {
-      type: dataType.DATE
+    name : {
+      primarykey: true,
+      type: dataType.STRING,
+    },
+    lastname : {
+      primarykey: true,
+      type: dataType.STRING,
+    },
+    address: {
+      primarykey: true,
+      type: dataType.STRING,
+    },
+    score: {
+      type: dataType.INTEGER,
+      length: 4
+    },
+    budget: {
+      type: dataType.REAL
+    },
+    credit: {
+      primarykey: true,
+      type: dataType.INTEGER,
     }
   })
 }
-
- //= (database) => solicitation(database);
