@@ -5,6 +5,11 @@ class Solicitation{
 		this.date = Date();
 		this.status = "pending";
 	}
+
+	verify(){
+		return user.canHaveCredCard();
+	}
+
 }
 
 module.exports = Solicitation;
