@@ -13,4 +13,3 @@ module.exports = (app) => {
         res.status(200).json({user: {name: "Mateus"} }).send();
       })
 };
-// docker run --name dockerpgsql -e "POSTGRES_PASSWORD=1234" -p 5432:5432 -d postgres
