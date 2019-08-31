@@ -14,11 +14,12 @@ app.use(bodyParser.json());
 router(app);
 // init models database
 app.set("sequelize", database());
-const user = modeluser(app.get("sequelize"));
-const association = modelsolicitation(app.get("sequelize"));
+app.set("modelUser", modeluser(app.get("sequelize")));
+app.set("modelsolicitation", modelsolicitation(app.get("sequelize")));
+
 // associations
-association.hasOne(user, {as: 'Association'})
-user.belongsTo(association, {as: 'association'})
+app.get("modelUser").hasOne(app.get("modelsolicitation"), {as: 'Association'});
+app.get("modelsolicitation").belongsTo(app.get("modelUser"), {as: 'association'});
 // sync database
 datasync(app.get("sequelize"));
 

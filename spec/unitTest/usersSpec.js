@@ -1,17 +1,19 @@
-const User = require('../../controller/User');
+const User = require('../../controllers/User');
 
 describe('Testing User Class', ()=>{
     it('Should create a new user', ()=>{
-        const user = new User("Mateus", "Machado", "1111111", "someStreetSP", 100);
+        const data = {name:"Mateus", lastname: "Machado", document: "1111111", address: "someStreetSP", score: 1,budget: 100}
+        const user = new User(data, null);
         expect(user.name).toEqual("Mateus");
         expect(user.lastname).toEqual("Machado");
         expect(user.document).toEqual("1111111");
         expect(user.address).toEqual("someStreetSP");
-        expect(user.score).toEqual(100);
+        expect(user.score).toEqual(1);
     })
 
     it('Should pass CanHaveCard() method', ()=>{
-        const user = new User("Mateus", "Machado", "1111111", "someStreetSP", 299);
+        const data = {name:"Mateus", lastname: "Machado", document: "1111111", address: "someStreetSP", score: 1, budget: 299}
+        const user = new User(data, null);
         // 1 a 299
         expect(user.canHaveCredCard()).toBeFalsy();
         user.score = 1;

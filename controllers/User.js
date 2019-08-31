@@ -1,12 +1,13 @@
 class User{
     
-    constructor(name, lastname, document, address, score, budget){
-        this.name = name;
-        this.lastname = lastname;
-        this.document = document;
-        this.address = address;
-        this.score = score;
-        this.budget = budget; 
+    constructor(data, model){
+        this.name = data.name;
+        this.lastname = data.lastname;
+        this.document = data.document;
+        this.address = data.address;
+        this.budget = data.budget;
+        this.model = model 
+        this.score = data.score || parseInt(Math.random(1, 9999) * 1000);
         this.credit = null;      
     }
 
