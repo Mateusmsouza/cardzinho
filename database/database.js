@@ -6,7 +6,8 @@ module.exports = () => {
     process.env.DATABASE_USER || 'mateus',
     process.env.DATABASE_PASSWORD || 1234,
     {
+      host: process.env.DATABASE_URL || '127.0.0.1',
       dialect: 'postgres',
-    },
+    }
   );
 }
