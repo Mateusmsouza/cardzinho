@@ -1,10 +1,11 @@
 solicitationController = require('../controllers/Solicitation');
+const path = require('path');
 
 module.exports = (app) => {
 
-  app.route("/")
+  /*app.route("/")
           .get((req, res) => res.status(200).send('Volte em breve, amigo. Estamos em desenvolvimento. - Mateus Souza'));
-
+*/
   app.route("/cartao")
       .get( (req, res) => { 
         
@@ -39,4 +40,7 @@ module.exports = (app) => {
           .catch( error => console.log(error) );
        
       })
+  app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname+'/../client/build/index.html'));
+      });
 };
