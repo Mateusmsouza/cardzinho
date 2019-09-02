@@ -1,9 +1,10 @@
 {
   "name": "client",
-  "homepage":"https://cardzinho.herokuapp.com/",
+  "homepage": "https://cardzinho.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "path": "^0.12.7",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1"

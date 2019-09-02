@@ -4,6 +4,7 @@ const router = require('./routes/cardRouter');
 const database = require('./database/database');
 const datasync = require('./database/sync');
 const modelsolicitation = require('./models/modelSolicitation');
+const path = require('path')
 
 const app = express();
 app.set("port", process.env.PORT || 3001);
