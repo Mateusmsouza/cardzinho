@@ -6,7 +6,7 @@ const datasync = require('./database/sync');
 const modelsolicitation = require('./models/modelSolicitation');
 
 const app = express();
-app.set("port", process.env.port || 3001);
+app.set("port", process.env.PORT || 3001);
 app.use(bodyParser.json());
 
 // init router
