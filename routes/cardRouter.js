@@ -7,12 +7,12 @@ module.exports = (app) => {
           .get((req, res) => res.status(200).send('Volte em breve, amigo. Estamos em desenvolvimento. - Mateus Souza'));
 */
   app.route("/cartao")
-      .get( (req, res) => { 
-        
+      .get( (req, res) => {   
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         const Solicitation = new solicitationController({}, app.get("modelSolicitation"));
         Solicitation.getAll()
                             .then( (allSolicitations =>  {
-                             
                               res.status(200).json(allSolicitations);
                                 
                             }))
