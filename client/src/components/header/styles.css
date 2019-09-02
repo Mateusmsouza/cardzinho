@@ -1,0 +1,30 @@
+#Header{
+  weight:100vh;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  margin:20px 50px 20px 15px;
+  justify-content: space-between;
+}
+
+#Header h1{
+  color:#F2711C;
+  font-family:'Times New Roman', Times, serif;
+}
+
+#Header button{
+  color: #fff;
+  font-size: 20px;
+  background-color: #2185D0;
+  border-radius: 10px;
+  padding: 5px 40px 5px 40px;
+}
+
+#Header button:hover{
+  cursor:pointer;
+  color: #2185D0;
+  font-size: 20px;
+  background-color:#fff;
+  padding: 5px 40px 5px 40px;
+  transition: 0.2s;
+}
