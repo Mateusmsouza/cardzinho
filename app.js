@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 // init router
 router(app);
 // init models database
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.set("sequelize", database());
 app.set("modelSolicitation", modelsolicitation(app.get("sequelize")));
 
