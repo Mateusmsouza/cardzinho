@@ -1,0 +1,32 @@
+.solicitations__list{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.solicitations__list__item{
+    border: 1px solid;
+    padding: 2px 80px 2px 80px;
+    margin-bottom: 10px;
+    display: flex;
+    width: 615px;
+    flex-direction: column;
+}
+
+.accepted{
+    border-color: #F2711C;
+}
+.rejected{
+    border: 1.5px solid;
+    border-color: #E40000;
+}
+
+.accepted__p{
+    color: #092B54;
+    font-weight: bold;
+}
+
+.rejected__p{
+    color: #E40000;
+}
+
