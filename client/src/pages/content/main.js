@@ -10,7 +10,7 @@ export default class Content extends Component{
     }
 
     getSolicitations = () => {
-      fetch('/cartao')
+      fetch('http://cardzinho.herokuapp.com/cartao')
         .then(response => response.json())
         .then( _solicitations => this.setState({Solicitations: _solicitations}))
     }

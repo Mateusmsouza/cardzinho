@@ -6,27 +6,32 @@
 
 .solicitations__list__item{
     border: 1px solid;
-    padding: 2px 80px 2px 80px;
-    margin-bottom: 10px;
+    border-radius: 3px;
+    box-shadow: 2px 1px 4px rgba(0,0,0,.2); 
+    padding: 16px;
+    margin: 8px;
     display: flex;
-    width: 615px;
     flex-direction: column;
 }
 
 .accepted{
-    border-color: #F2711C;
+    border-color: rgba(242, 113,28,.7);
 }
 .rejected{
     border: 1.5px solid;
-    border-color: #E40000;
+    border-color: rgba(255,0,0,.7);
 }
 
 .accepted__p{
     color: #092B54;
-    font-weight: bold;
 }
 
 .rejected__p{
     color: #E40000;
 }
 
+.accepted__p,
+.rejected__p {
+    font-weight: bold;
+    margin-top: 8px;
+}
