@@ -11,16 +11,16 @@ export default class Content extends Component{
     componentDidMount(){
       this.getSolicitations();
     }
-
+    // "/"
     getSolicitations = () => {
-      fetch('/cartao')
+      fetch('http://cardzinho.herokuapp.com/cartao')
                     .then(response => response.json())
       .then( _solicitations => this.setState({Solicitations: _solicitations}))
       .catch(error => console.log(error))
     }
 
     deleteSolicitation = (event, id) => {
-      fetch('/cartao', {method: 'DELETE', body: JSON.stringify({id: id}), headers: {'Content-Type': 'application/json'},} )
+      fetch('http://cardzinho.herokuapp.com/cartao', {method: 'DELETE', body: JSON.stringify({id: id}), headers: {'Content-Type': 'application/json'},} )
       .then(retorno => this.getSolicitations())
     }
 
