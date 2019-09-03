@@ -9,18 +9,23 @@ module.exports = (app) => {
   app.route("/cartao")
       .get( (req, res) => {   
         res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         const Solicitation = new solicitationController({}, app.get("modelSolicitation"));
         Solicitation.getAll()
                             .then( (allSolicitations =>  {
                               res.status(200).json(allSolicitations);
                                 
                             }))
-                            .catch( () => res.status(501).send() )
+                            .catch( (error) => {
+                              console.log(error);
+                              res.status(501).send()
+                            } )
           
       })
 
       .post( (req, res) => {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         // instance class
         const Solicitation = new solicitationController(req.body, app.get("modelSolicitation"));
         // verify solicitation
@@ -34,13 +39,18 @@ module.exports = (app) => {
       })
 
       .delete( (req, res) => {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         const Solicitation = new solicitationController({}, app.get("modelSolicitation"));
+        
         Solicitation.exclude(req.body)
           .then( excluded =>  res.status(200).json(excluded).send())
           .catch( error => console.log(error) );
        
       })
   app.get('/', (req, res) => {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); 
         res.sendFile(path.join(__dirname+'/../client/build/index.html'));
       });
 };

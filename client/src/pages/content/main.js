@@ -13,9 +13,15 @@ export default class Content extends Component{
     }
 
     getSolicitations = () => {
-      fetch('http://cardzinho.herokuapp.com/cartao')
+      fetch('/cartao')
         .then(response => response.json())
         .then( _solicitations => this.setState({Solicitations: _solicitations}))
+    }
+
+    deleteSolicitation = (event, id) => {
+      console.log(id);
+      fetch('/cartao', {method: 'DELETE', body: JSON.stringify({id: id}), headers: {'Content-Type': 'application/json'},} )
+      .then(retorno => this.getSolicitations())
     }
 
     returnInteration(status, limite){
@@ -25,14 +31,14 @@ export default class Content extends Component{
 
     render(){
       const {Solicitations} = this.state;
-
+      
       return(
 
         <div className="solicitations__list">
           {Solicitations.map(solicitation => (
             // [solicitations__list__item, solicitation.status].join(" ")
             <article className={["solicitations__list__item", solicitation.status].join(" ")} key={solicitation.id}>
-              <FaTrashAlt />
+              <p className="solicitations__list__item__trash" onClick={ (e) => this.deleteSolicitation(e, solicitation.id)}><FaTrashAlt /></p>
               <p><strong>Solicitante: </strong>{solicitation.name} {solicitation.lastname}</p>
               <p><strong>Documento:</strong> {solicitation.document}</p>
               <p><strong>Endereço:</strong> {solicitation.address}</p>

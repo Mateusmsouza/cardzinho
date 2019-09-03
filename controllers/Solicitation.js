@@ -35,7 +35,7 @@ class Solicitation{
           return this._setCreditAndReturnTrue(this.budget * 2);
       }else if(isScoreBetween(950, 1000)){
           // 951 a 999	Sem limites, considerar R$ 1.000.000
-          return this._ResolveAndReturnTrue(1000000)
+          return this._setCreditAndReturnTrue(1000000)
       }
       this.status = "rejected";
       return false;

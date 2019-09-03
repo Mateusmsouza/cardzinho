@@ -17,6 +17,9 @@ module.exports = (database) => {
       primarykey: true,
       type: dataType.STRING,
     },
+    document: {
+      type: dataType.STRING,
+    },
     score: {
       type: dataType.INTEGER,
       length: 4

@@ -13,6 +13,13 @@
     display: flex;
     flex-direction: column;
 }
+.solicitations__list__item__trash{
+  align-self: flex-end;
+}
+
+.solicitations__list__item__trash:hover{
+  cursor: pointer;
+}
 
 .solicitations__list__item p {
     margin-bottom: 4px;
