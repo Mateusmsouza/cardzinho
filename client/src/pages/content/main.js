@@ -10,7 +10,7 @@ export default class Content extends Component{
     }
 
     getSolicitations = () => {
-      fetch('http://cardzinho.herokuapp.com/cartao')
+      fetch('/cartao')
         .then(response => response.json())
         .then( _solicitations => this.setState({Solicitations: _solicitations}))
     }
@@ -30,8 +30,8 @@ export default class Content extends Component{
             // [solicitations__list__item, solicitation.status].join(" ")
             <article className={["solicitations__list__item", solicitation.status].join(" ")} key={solicitation.id}>
               <p><strong>Solicitante: </strong>{solicitation.name} {solicitation.lastname}</p>
-              <p>Documento: {solicitation.document}</p>
-              <p>Endereço: {solicitation.address}</p>
+              <p><strong>Documento:</strong> {solicitation.document}</p>
+              <p><strong>Endereço:</strong> {solicitation.address}</p>
               <p className={solicitation.status+"__p"}>{this.returnInteration(solicitation.status, solicitation.credit)}</p>
               
               
