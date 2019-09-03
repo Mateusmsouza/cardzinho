@@ -20,7 +20,7 @@ export default class Popup extends Component {
     }
 
     sendServer = (body) => {
-      fetch('http://cardzinho.herokuapp.com/cartao', {method: 'POST', body: body, headers: {'Content-Type': 'application/json'},} )
+      fetch('cartao', {method: 'POST', body: body, headers: {'Content-Type': 'application/json'},} )
       .then(retorno => this.getSolicitations())
     }
 

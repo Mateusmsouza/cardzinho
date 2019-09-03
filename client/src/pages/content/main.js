@@ -13,14 +13,14 @@ export default class Content extends Component{
     }
     // "/"
     getSolicitations = () => {
-      fetch('http://cardzinho.herokuapp.com/cartao')
+      fetch('/cartao')
                     .then(response => response.json())
       .then( _solicitations => this.setState({Solicitations: _solicitations}))
       .catch(error => console.log(error))
     }
 
     deleteSolicitation = (event, id) => {
-      fetch('http://cardzinho.herokuapp.com/cartao', {method: 'DELETE', body: JSON.stringify({id: id}), headers: {'Content-Type': 'application/json'},} )
+      fetch('/cartao', {method: 'DELETE', body: JSON.stringify({id: id}), headers: {'Content-Type': 'application/json'},} )
       .then(retorno => this.getSolicitations())
     }
 
