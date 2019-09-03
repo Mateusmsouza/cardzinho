@@ -14,8 +14,9 @@ export default class Content extends Component{
 
     getSolicitations = () => {
       fetch('/cartao')
-        .then(response => response.json())
-        .then( _solicitations => this.setState({Solicitations: _solicitations}))
+                    .then(response => response.json())
+      .then( _solicitations => this.setState({Solicitations: _solicitations}))
+      .catch(error => console.log(error))
     }
 
     deleteSolicitation = (event, id) => {
