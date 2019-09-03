@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import './styles.css'
+import { FaTrashAlt } from 'react-icons/fa';
+
+import './styles.css';
+
 export default class Content extends Component{
     state = {
       Solicitations: []
@@ -10,7 +13,7 @@ export default class Content extends Component{
     }
 
     getSolicitations = () => {
-      fetch('/cartao')
+      fetch('http://cardzinho.herokuapp.com/cartao')
         .then(response => response.json())
         .then( _solicitations => this.setState({Solicitations: _solicitations}))
     }
@@ -29,6 +32,7 @@ export default class Content extends Component{
           {Solicitations.map(solicitation => (
             // [solicitations__list__item, solicitation.status].join(" ")
             <article className={["solicitations__list__item", solicitation.status].join(" ")} key={solicitation.id}>
+              <FaTrashAlt />
               <p><strong>Solicitante: </strong>{solicitation.name} {solicitation.lastname}</p>
               <p><strong>Documento:</strong> {solicitation.document}</p>
               <p><strong>Endereço:</strong> {solicitation.address}</p>
