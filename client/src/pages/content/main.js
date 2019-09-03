@@ -19,7 +19,6 @@ export default class Content extends Component{
     }
 
     deleteSolicitation = (event, id) => {
-      console.log(id);
       fetch('/cartao', {method: 'DELETE', body: JSON.stringify({id: id}), headers: {'Content-Type': 'application/json'},} )
       .then(retorno => this.getSolicitations())
     }
