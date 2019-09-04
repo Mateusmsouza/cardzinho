@@ -10,17 +10,24 @@ export default class Header extends Component{
     };
   
 
-  showRegisterPopUp() {
-    this.setState({
-      showPopup: !this.state.showPopup
-    });
+  showRegisterPopUp(e) {
+    console.log('entrou');
+    let hasClass = e.target.classList.contains.bind(e.target.classList);
+    let isClosingElement = hasClass('blocker') || hasClass('blocker__close-btn');
+    let isOpenningButton = hasClass('header__open-popup');
+    
+    if(isClosingElement || isOpenningButton) {
+      this.setState({
+        showPopup: !this.state.showPopup
+      });
+    }
   }
   render(){
       return(
         <header id="Header">
         <div class="header-wrapper">
           <h1>Cardzinho</h1>
-          <button onClick={(e) => this.showRegisterPopUp(e)}>Quero um Cardzinho!</button>
+          <button className="header__open-popup" onClick={(e) => this.showRegisterPopUp(e)}>Quero um Cardzinho!</button>
         </div>
         {this.state.showPopup ? <RegisterPopup closePopup={(e) => this.showRegisterPopUp(e)} /> : null}
         </header>
