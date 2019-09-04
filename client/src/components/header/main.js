@@ -27,9 +27,9 @@ export default class Header extends Component{
         <header id="Header">
         <div class="header-wrapper">
           <h1>Cardzinho</h1>
-          <button className="header__open-popup" onClick={(e) => this.showRegisterPopUp(e)}>Quero um Cardzinho!</button>
-        </div>
-        {this.state.showPopup ? <RegisterPopup closePopup={(e) => this.showRegisterPopUp(e)} /> : null}
+          
+          </div>
+        
         </header>
       )
     }

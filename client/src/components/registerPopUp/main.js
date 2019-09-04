@@ -22,10 +22,11 @@ export default class Popup extends Component {
     }
 
     sendServer = (body) => {
-      Api.createNewSolicitation(body)
+     Api.createNewSolicitation(body)
       .then(retorno => {
-        window.location.reload();
-        return this.props.closePopup
+        console.log(retorno);
+        {this.props.closePopup()}
+        return;
         })
     }
 
@@ -57,7 +58,7 @@ export default class Popup extends Component {
               <input name="budget" value={this.state.budget} onChange={this.handler} type="text" placeholder="Renda" className="blocker__input"/>
               
               <div className="blocker__popup__actions">
-                <button onClick={this.generateJsonAndSumit}>Enviar</button>
+                <button className="blocker__done-btn" onClick={this.generateJsonAndSumit}>Enviar</button>
                 <button className="blocker__close-btn" onClick={this.props.closePopup}>Fechar</button>
                 
               </div>
