@@ -1,3 +1,5 @@
+const Op = require('sequelize').Op;
+
 class Solicitation{
 
 	constructor(data, model){
@@ -41,8 +43,20 @@ class Solicitation{
       return false;
   }
 
+  checkOldestRegister(){
+  console.log(new Date( Date.parse(new Date()) -(5 * 60000)))
+   return this.model.findAll({where: { 
+      name: this.name,
+      lastname: this.lastname,
+      address: this.address,
+      createdAt:{
+                [Op.gt]:new Date( Date.parse(new Date()) -(5 * 60000))
+                }
+    }})
+  }
+
   async save(){
-    return await this.model.create(this)
+    return await this.model.create(this);
   }
 
   getAll(){

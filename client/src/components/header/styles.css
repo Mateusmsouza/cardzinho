@@ -17,32 +17,3 @@
   color:#F2711C;
 }
 
-
-#Header button {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  background-color: #2185D0;
-  border-radius: 10px;
-  padding: 5px 40px;
-  transition: 0.2s;
-  border: 1px solid white;
-}
-
-#Header button:hover {
-  cursor:pointer;
-  border: 1px solid #2185D0;
-  color: #2185D0;  
-  background-color:#fff;
-}
-
-@media(max-width: 400px) {
-
-  #Header .header-wrapper {
-    flex-direction: column;
-  }
-
-  #Header button {
-    margin-top: 16px;
-  }
-}
