@@ -3,7 +3,7 @@ const dataType = require('sequelize');
 module.exports = (database) => {
   return database.define('SOLICITATIONS', {
     status: {
-      type: dataType.STRING
+      type: dataType.STRING(8)
     },
     name : {
       primarykey: true,
@@ -18,7 +18,7 @@ module.exports = (database) => {
       type: dataType.STRING,
     },
     document: {
-      type: dataType.STRING,
+      type: dataType.STRING(11),
     },
     score: {
       type: dataType.INTEGER,
@@ -29,7 +29,7 @@ module.exports = (database) => {
     },
     credit: {
       primarykey: true,
-      type: dataType.INTEGER,
+      type: dataType.REAL,
     }
   })
 }
