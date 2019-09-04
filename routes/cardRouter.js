@@ -24,6 +24,7 @@ module.exports = (app) => {
       })
 
       .post( (req, res) => {
+        console.log(req.body)
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         // instance class

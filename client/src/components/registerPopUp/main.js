@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Api from '../../services/api';
+import Content from '../../pages/content/main';
 import './styles.css';
 
 export default class Popup extends Component {
@@ -20,8 +22,11 @@ export default class Popup extends Component {
     }
 
     sendServer = (body) => {
-      fetch('cartao', {method: 'POST', body: body, headers: {'Content-Type': 'application/json'},} )
-      .then(retorno => this.getSolicitations())
+      Api.createNewSolicitation(body)
+      .then(retorno => {
+        window.location.reload();
+        return this.props.closePopup
+        })
     }
 
     generateJsonAndSumit = () => {
@@ -33,6 +38,7 @@ export default class Popup extends Component {
         address: this.state.address,
         budget: this.state.budget
       }
+
       this.sendServer(body);
     }
 
@@ -42,7 +48,7 @@ export default class Popup extends Component {
 
       return (
 
-        <form className="blocker" onClick={this.props.closePopup}>
+        <div className="blocker" onClick={this.props.closePopup}>
           <div className="blocker__popup">
               <input name="name" value={this.state.name} onChange={this.handler} type="text" placeholder="Nome" className="blocker__input"/>
               <input name="lastname" value={this.state.lastname} onChange={this.handler} type="text" placeholder="Sobrenome" className="blocker__input"/>
@@ -51,13 +57,14 @@ export default class Popup extends Component {
               <input name="budget" value={this.state.budget} onChange={this.handler} type="text" placeholder="Renda" className="blocker__input"/>
               
               <div className="blocker__popup__actions">
-                <button className="blocker__close-btn" onClick={this.props.closePopup}>Close</button>
-                <button onClick={this.generateJsonAndSumit}>Test</button>
+                <button onClick={this.generateJsonAndSumit}>Enviar</button>
+                <button className="blocker__close-btn" onClick={this.props.closePopup}>Fechar</button>
+                
               </div>
           
           </div>
           
-        </form>
+        </div>
       );
     }
   }

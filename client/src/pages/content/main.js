@@ -1,34 +1,36 @@
 import React, {Component} from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
+import Api from '../../services/api';
 
 import './styles.css';
 
 export default class Content extends Component{
-    state = {
-      Solicitations: []
-    }
+    
+      state = {
+        Solicitations: []
+        
+      }
+    
 
     componentDidMount(){
       this.getSolicitations();
     }
     // "/"
     getSolicitations = () => {
-      fetch('/cartao')
-                    .then(response => response.json())
-      .then( _solicitations => this.setState({Solicitations: _solicitations}))
-      .catch(error => console.log(error))
+      Api.getAllSolicitations()
+        .then(response => this.setState({Solicitations: response}))
     }
 
     deleteSolicitation = (event, id) => {
-      fetch('/cartao', {method: 'DELETE', body: JSON.stringify({id: id}), headers: {'Content-Type': 'application/json'},} )
-      .then(retorno => this.getSolicitations())
+      Api.deleteSolicitation(id)
+        .then(retorno => this.getSolicitations())
     }
 
     returnInteration(status, limite){
       if (status === "rejected") return "Ops :( Parece que não foi desta vez, tente novamente em uma hora";
       return  "Parabéns :) Agora você possui um Cardzinho com limite de "+limite+'.00';
     }
-
+    
     render(){
       const {Solicitations} = this.state;
       
