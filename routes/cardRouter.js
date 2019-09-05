@@ -3,21 +3,20 @@ const path = require('path');
 
 module.exports = (app) => {
 
-  /*app.route("/")
-          .get((req, res) => res.status(200).send('Volte em breve, amigo. Estamos em desenvolvimento. - Mateus Souza'));
-*/let errorJson = "error:'unexpectedError'";
+  let errorJson = "error:'unexpectedError'";
   let warningCoolDown = "warning:'cooldownNotComplete'";
   app.route("/cartao")
       .get( (req, res) => {   
         res.header("Access-Control-Allow-Origin", "*");
-        //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
         const Solicitation = new solicitationController({}, app.get("modelSolicitation"));
         Solicitation.getAll()
                             .then( (allSolicitations =>  {
                               res.status(200).json(allSolicitations);
                                 
                             }))
-                            .catch(error => res.status(501).json(error).send())
+                            .catch(error => res.status(501).json(errorJson).send())
           
       })
 
@@ -28,7 +27,7 @@ module.exports = (app) => {
         const Solicitation = new solicitationController(req.body, app.get("modelSolicitation"));
         // verify solicitation
         Solicitation.canHaveCredCard();
-
+        // return to home
         Solicitation.checkOldestRegister()
                     .then((registers) => {
                       if (registers.length == 0){
@@ -44,12 +43,15 @@ module.exports = (app) => {
       .delete( (req, res) => {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        
         const Solicitation = new solicitationController({}, app.get("modelSolicitation"));
         
         Solicitation.exclude(req.body)
           .then( excluded =>  res.status(200).json(excluded).send())
           .catch(error => res.status(501).json(errorJson).send())
       })
+
+  //home    
   app.get('/', (req, res) => {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); 

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import Api from '../../services/api';
-import RegisterPopup from '../../components/registerPopUp/main';
+import RegisterPopup from '../registerPopUp/main';
 import './styles.css';
-import '../../components/registerPopUp/main'
+import '../registerPopUp/main'
 
 export default class Content extends Component{
     
