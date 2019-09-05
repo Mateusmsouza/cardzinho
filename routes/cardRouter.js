@@ -17,7 +17,7 @@ module.exports = (app) => {
                               res.status(200).json(allSolicitations);
                                 
                             }))
-                            .catch(error => res.status(501).json(errorJson).send())
+                            .catch(error => res.status(501).json(error).send())
           
       })
 
