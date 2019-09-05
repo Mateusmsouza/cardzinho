@@ -23,6 +23,13 @@
   cursor: pointer;
 }
 
+@media(max-width: 400px) {
+  .solicitations__list__item {
+    min-width: auto;
+    min-height: auto;
+  }
+}
+
 .solicitations__list__item p {
     margin-bottom: 4px;
 }
