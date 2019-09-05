@@ -1,5 +1,5 @@
 body{
-	font-family: sans-serif;;
+	font-family:'Montserrat', sans-serif;
 	font-size: 14px;
   line-height: 16px;
   height: 98%;
@@ -20,8 +20,4 @@ strong {
   justify-content: space-between;
 
   min-height: 100vh;
-}
-
-.global-content {
-
 }
