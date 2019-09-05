@@ -7,8 +7,7 @@ export default class Api {
   }
 
   static createNewSolicitation(body){
-   fetch('/cartao', {method: 'POST', body: JSON.stringify(body), headers: {'Content-Type': 'application/json'},} )
-
+   return fetch('/cartao', {method: 'POST', body: JSON.stringify(body), headers: {'Content-Type': 'application/json'},} )
   }
 
   static deleteSolicitation(id){

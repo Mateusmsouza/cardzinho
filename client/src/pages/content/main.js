@@ -18,7 +18,6 @@ export default class Content extends Component{
     }
     // "/"
     getSolicitations = () => {
-      console.log("Fui Chamado");
       Api.getAllSolicitations()
         .then(response => this.setState({Solicitations: response}))
     }
@@ -33,24 +32,18 @@ export default class Content extends Component{
       return  "Parabéns :) Agora você possui um Cardzinho com limite de "+limite+'.00';
     }
     /*button*/
-  showRegisterPopUp = (e) => {
+  showRegisterPopUp(e){
 
+    console.log("Target evento:")
     console.log(e.target);
     let hasClass = e.target.classList.contains.bind(e.target.classList);
     let isClosingElement = hasClass('blocker') || hasClass('blocker__close-btn');
-    let isOpenningButton = hasClass('header__open-popup');
+    let isOpenningButton = hasClass('header__open-popup')
     let isSubmitButton = hasClass('blocker__done-btn');
     
-    if(isClosingElement || isOpenningButton || isSubmitButton) {
-      if(isSubmitButton) {
-        console.log("entrou no atualiza");
-        setTimeout(this.getSolicitations(), 3000);
-        
-      }
-      this.setState({
-        showPopup: !this.state.showPopup
-      });
-    }
+    if(isClosingElement || isSubmitButton)this.setState({showPopup: false});
+    if(isOpenningButton) this.setState({showPopup: true});
+    if(isSubmitButton) this.getSolicitations(); 
   }
     
     render(){

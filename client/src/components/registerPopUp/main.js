@@ -21,17 +21,10 @@ export default class Popup extends Component {
       this.setState({[e.target.name]: e.target.value});   
     }
 
-    sendServer = (body) => {
-     Api.createNewSolicitation(body)
-      .then(retorno => {
-        console.log(retorno);
-        {this.props.closePopup()}
-        return;
-        })
-    }
-
-    generateJsonAndSumit = () => {
+    generateJsonAndSumit = (e) => {
       
+      console.log("Target no submit")
+      console.log(e.target);
       let body = {
         name: this.state.name,
         lastname:this.state.lastname,
@@ -40,7 +33,12 @@ export default class Popup extends Component {
         budget: this.state.budget
       }
 
-      this.sendServer(body);
+      e.persist();
+      Api.createNewSolicitation(body)
+      .then((object) => {
+        console.log('Vou carregar na tela agora')
+        {this.props.closePopup(e)};
+      })
     }
 
     
@@ -58,7 +56,7 @@ export default class Popup extends Component {
               <input name="budget" value={this.state.budget} onChange={this.handler} type="text" placeholder="Renda" className="blocker__input"/>
               
               <div className="blocker__popup__actions">
-                <button className="blocker__done-btn" onClick={this.generateJsonAndSumit}>Enviar</button>
+                <button className="blocker__done-btn" onClick={(e) => this.generateJsonAndSumit(e)}>Enviar</button>
                 <button className="blocker__close-btn" onClick={this.props.closePopup}>Fechar</button>
                 
               </div>
