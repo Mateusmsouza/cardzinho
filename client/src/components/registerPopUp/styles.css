@@ -34,3 +34,39 @@
   justify-content: center;
   margin-top: 8px;
 }
+
+.blocker__done-btn{
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #2185D0;
+  border-radius: 10px;
+  padding: 5px 40px;
+  transition: 0.2s;
+  border: 1px solid white;
+}
+
+.blocker__close-btn{
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #2185D0;
+  border-radius: 10px;
+  padding: 5px 40px;
+  transition: 0.2s;
+  border: 1px solid white;
+}
+
+.blocker__done-btn:hover {
+  cursor:pointer;
+  border: 1px solid #2185D0;
+  color: #2185D0;  
+  background-color:#fff;
+}
+
+.blocker__close-btn:hover{
+  cursor:pointer;
+  border: 1px solid #2185D0;
+  color: #2185D0;  
+  background-color:#fff;
+}

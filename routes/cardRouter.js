@@ -5,8 +5,8 @@ module.exports = (app) => {
 
   /*app.route("/")
           .get((req, res) => res.status(200).send('Volte em breve, amigo. Estamos em desenvolvimento. - Mateus Souza'));
-*/let _errorJson = "error:'unexpectedError'";
-  let _warningCoolDown = "warning:'cooldownNotComplete'";
+*/let errorJson = "error:'unexpectedError'";
+  let warningCoolDown = "warning:'cooldownNotComplete'";
   app.route("/cartao")
       .get( (req, res) => {   
         res.header("Access-Control-Allow-Origin", "*");
@@ -35,7 +35,7 @@ module.exports = (app) => {
                         Solicitation.save()
                                     .then( (solicitation) => res.status(200).json(solicitation).send() )
                                     .catch(error => res.status(501).json(errorJson).send())
-                      }else res.status(500).json(warningCoolDown).send(); 
+                      }else res.status(400).json(warningCoolDown).send(); 
                     })
                     .catch(error => res.status(501).json(errorJson).send())
           // save to database and return to view         

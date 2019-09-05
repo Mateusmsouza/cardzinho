@@ -7,7 +7,7 @@ const modelsolicitation = require('./models/modelSolicitation');
 const path = require('path')
 
 const app = express();
-app.set("port", process.env.PORT || 3001);
+app.set("port", process.env.PORT || 3002);
 app.use(bodyParser.json());
 
 // init router

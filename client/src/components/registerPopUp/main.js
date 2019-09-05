@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Api from '../../services/api';
-import Content from '../../pages/content/main';
 import './styles.css';
 
 export default class Popup extends Component {
@@ -22,9 +21,6 @@ export default class Popup extends Component {
     }
 
     generateJsonAndSumit = (e) => {
-      
-      console.log("Target no submit")
-      console.log(e.target);
       let body = {
         name: this.state.name,
         lastname:this.state.lastname,
@@ -35,9 +31,8 @@ export default class Popup extends Component {
 
       e.persist();
       Api.createNewSolicitation(body)
-      .then((object) => {
-        console.log('Vou carregar na tela agora')
-        {this.props.closePopup(e)};
+      .then(() => {
+        this.props.closePopup(e);
       })
     }
 
