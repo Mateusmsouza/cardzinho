@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "path": "^0.12.7",
     "pg": "^7.12.1",
-    "sequelize": "^5.18.0"
+    "sequelize": "^6.28.2"
   },
   "devDependencies": {
     "jasmine": "^3.4.0",
